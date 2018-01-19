@@ -1,0 +1,22 @@
+disappeared for a while
+work for some big scale projects
+realize the importance of using docker
+
+So why docker?
+- The purpose of using docker
+- comparing docker with VMs
+quote:
+It’s important to distinguish containers and hypervisor-based virtual machines (VMs). VMs allow multiple copies of the operating system, or even multiple different operating systems, to share a machine. Each VM can host and run multiple applications. By comparison, a container is designed to virtualize a single application, and all containers deployed on a host share a single OS kernel, as Figure 2 shows. Typically, containers spin up faster, run the application with bare-metal performance, and are simpler to manage since there is no additional overhead to making an OS kernel call.
+
+- the weakness of docker when dealing with GPUs -> nvidia-docker
+
+Installation of docker
+nvidia-driver in host
+install docker
+install nvidia-docker
+choosing images
+
+Examples
+
+Hey guys, it has been quite a long while since my last blog post (for almost a year, I guess). Today, I am going to tell you about something that I wish I had known before: nvidia-docker.
+
