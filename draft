@@ -20,3 +20,24 @@ Examples
 
 Hey guys, it has been quite a long while since my last blog post (for almost a year, I guess). Today, I am going to tell you about something that I wish I had known before: nvidia-docker.
 
+virtual
+not real
+not directly doing something with drivers
+
+docker and nvidia-docker definition
+
+3. Installing NVIDIA docker
+So, let's get into the most important part: installing NVIDIA docker.
+As I said in the previous part, NVIDIA docker is just a plugin to docker, which makes GPU accessible from inside docker's containers. Therefore, installing NVIDIA docker consists of three steps like below:
+- Installing NVIDIA driver
+- Installing docker
+- Installing NVIDIA docker
+
+* Installing NVIDIA driver
+NVIDIA driver is simply the necessary driver to use your GPU. You only need to install NVIDIA driver to your PC in order to use NVIDIA docker, which is a big advantage of docker.
+How to install NVIDIA driver depends on what Linux distribution you are using. And NVIDIA has a very detailed step-by-step instructions for all Linux distributions, so I think I should leave this part for you guys :) It's very easy, don't panic. My one piece of advice is: the newer the driver is, the better! The reason is that, newer version of CUDA toolkit may not work with old version of NVIDIA driver.
+Link: http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
+
+* Installing docker
+Next, we will install docker. Docker has two available editions: Community Edition (CE) and Enterprise Edition (EE). And just like NVIDIA driver, you need to know what Linux distribution you are using to choose the proper installation file.
+In this part, I will show you 
