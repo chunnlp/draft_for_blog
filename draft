@@ -20,6 +20,13 @@ Examples
 
 Hey guys, it has been quite a long while since my last blog post (for almost a year, I guess). Today, I am going to tell you about something that I wish I had known before: nvidia-docker.
 
+1. What is Docker? And what is NVIDIA Docker?
+You can grab the idea behind Docker from Docker's page. 
+\quote Docker
+
+The core of Docker: container. Can think of it as some kind of Virtual Machine (but it's not, I will tell the difference below).
+
+*image of Docker container
 virtual
 not real
 not directly doing something with drivers
