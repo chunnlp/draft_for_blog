@@ -104,3 +104,40 @@ $ sudo docker run hello-world
 Your screen should print out something like below:
 
 *image of docker hello world*
+
+* Installing NVIDIA docker
+In the next step, we will finish our job by installing NVIDIA docker, which is just a plug in of Docker to help container use the GPUs of the host machine.
+
+First, you need to remove NVIDIA docker 1.0 (if installed):
+
+\python
+docker volume ls -q -f driver=nvidia-docker | xargs -r -I{} -n1 docker ps -q -a -f volume={} | xargs -r docker rm -f
+sudo apt-get purge -y nvidia-docker
+\
+
+Next, we will add the necessary repository, then update the *apt* package index:
+
+\python
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
+  sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64/nvidia-docker.list | \
+  sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+sudo apt-get update
+\
+
+We are nearly there, next we will install NVIDIA docker:
+
+\python
+sudo apt-get install -y nvidia-docker2
+sudo pkill -SIGHUP dockerd
+\
+
+That's it. We have installed NVIDIA docker. Let's verify the installation by running the latest CUDA image, which is officially provided by NVIDIA:
+
+\python
+docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
+\
+
+The command above should print out the information of your host machine's GPU(s) (as the nvidia-smi command usually does).
+
+
