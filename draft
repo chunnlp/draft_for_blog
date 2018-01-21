@@ -40,4 +40,67 @@ Link: http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
 
 * Installing docker
 Next, we will install docker. Docker has two available editions: Community Edition (CE) and Enterprise Edition (EE). And just like NVIDIA driver, you need to know what Linux distribution you are using to choose the proper installation file.
-In this part, I will show you 
+Below is the installing instructions for Docker Community Edition on Ubuntu (the OS I am using, of course).
+
+Firstly, you need to remove (if any) old version of docker. If you can assure that this is the first time you install docker on your machine, then you can skip to the next step. Otherwise, you'd better run the following command:
+
+\python
+$ sudo apt-get remove docker docker-engine docker.io
+\
+
+If docker is not installed on your machine, then apt-get will tell you that. It is totally fine.
+
+Next, we will install docker. I recommend installing docker using the repository so that when the new version is available, you can get the update from repository easily.
+
+To installing from repository, we need to set up the Docker repository first. As usual, you may want to update the *apt* package index:
+
+\python
+$ sudo apt-get update
+\
+
+Next, install the packages to allow *apt* to use a repository through HTTPS:
+
+\python
+$ sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+\
+
+Next, add the official GPG key of Docker:
+
+\python
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+\
+
+Verify that the command below print out 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88:
+
+\python
+$ sudo apt-key fingerprint 0EBFCD88
+\
+
+Next, tell *apt* to use the stable repository by run the command below:
+
+\python
+$ sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+\
+
+At this time, we have finished set up the repository. Next, we will update the *apt* package index and install Docker CE:
+
+\python
+$ sudo apt-get update && apt-get install docker-ce
+\
+
+Next, we will check if Docker is installed correctly by running the well-known hello-world Image:
+
+\python
+$ sudo docker run hello-world
+\
+
+Your screen should print out something like below:
+
+*image of docker hello world*
