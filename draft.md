@@ -20,7 +20,7 @@ Examples
 
 Hey guys, it has been quite a long while since my last blog post (for almost a year, I guess). Today, I am going to tell you about something that I wish I had known before: nvidia-docker.
 
-1. What is Docker? And what is NVIDIA Docker?
+### What is Docker? And what is NVIDIA Docker?
 You can grab the idea behind Docker from Docker's page. 
 \quote Docker
 
@@ -33,7 +33,7 @@ not directly doing something with drivers
 
 docker and nvidia-docker definition
 
-3. Installing NVIDIA docker
+### Installing NVIDIA docker
 So, let's get into the most important part: installing NVIDIA docker.
 As I said in the previous part, NVIDIA docker is just a plugin to docker, which makes GPU accessible from inside docker's containers. Therefore, installing NVIDIA docker consists of three steps like below:
 - Installing NVIDIA driver
@@ -51,9 +51,9 @@ Below is the installing instructions for Docker Community Edition on Ubuntu (the
 
 Firstly, you need to remove (if any) old version of docker. If you can assure that this is the first time you install docker on your machine, then you can skip to the next step. Otherwise, you'd better run the following command:
 
-\python
+```
 $ sudo apt-get remove docker docker-engine docker.io
-\
+```
 
 If docker is not installed on your machine, then apt-get will tell you that. It is totally fine.
 
@@ -61,52 +61,52 @@ Next, we will install docker. I recommend installing docker using the repository
 
 To installing from repository, we need to set up the Docker repository first. As usual, you may want to update the *apt* package index:
 
-\python
+```
 $ sudo apt-get update
-\
+```
 
 Next, install the packages to allow *apt* to use a repository through HTTPS:
 
-\python
+```
 $ sudo apt-get install \
     apt-transport-https \
     ca-certificates \
     curl \
     software-properties-common
-\
+```
 
 Next, add the official GPG key of Docker:
 
-\python
+```
 $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-\
+```
 
 Verify that the command below print out 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88:
 
-\python
+```
 $ sudo apt-key fingerprint 0EBFCD88
-\
+```
 
 Next, tell *apt* to use the stable repository by run the command below:
 
-\python
+```
 $ sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
-\
+```
 
-At this time, we have finished set up the repository. Next, we will update the *apt* package index and install Docker CE:
+At this point, we have finished set up the repository. Next, we will update the *apt* package index and install Docker CE:
 
-\python
+```
 $ sudo apt-get update && apt-get install docker-ce
-\
+```
 
 Next, we will check if Docker is installed correctly by running the well-known hello-world Image:
 
-\python
+```
 $ sudo docker run hello-world
-\
+```
 
 Your screen should print out something like below:
 
@@ -117,33 +117,33 @@ In the next step, we will finish our job by installing NVIDIA docker, which is j
 
 First, you need to remove NVIDIA docker 1.0 (if installed):
 
-\python
+```
 docker volume ls -q -f driver=nvidia-docker | xargs -r -I{} -n1 docker ps -q -a -f volume={} | xargs -r docker rm -f
 sudo apt-get purge -y nvidia-docker
-\
+```
 
 Next, we will add the necessary repository, then update the *apt* package index:
 
-\python
+```
 curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
   sudo apt-key add -
 curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64/nvidia-docker.list | \
   sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 sudo apt-get update
-\
+```
 
 We are nearly there, next we will install NVIDIA docker:
 
-\python
+```
 sudo apt-get install -y nvidia-docker2
 sudo pkill -SIGHUP dockerd
-\
+```
 
 That's it. We have installed NVIDIA docker. Let's verify the installation by running the latest CUDA image, which is officially provided by NVIDIA:
 
-\python
+```
 docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
-\
+```
 
 The command above should print out the information of your host machine's GPU(s) (as the nvidia-smi command usually does).
 
