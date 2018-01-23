@@ -1,3 +1,19 @@
+---
+title: "Tensorflow Implementation Note: Installing Tensorflow and Keras on Windows"
+header:
+  teaser: projects/tensorflow-install/tensorflow_logo.png
+categories:
+  - Project
+tags:
+  - machine-learning
+  - deep-learning
+  - keras
+  - tensorflow
+  - gpu
+  - training
+  - note
+---
+
 disappeared for a while
 work for some big scale projects
 realize the importance of using docker
@@ -18,20 +34,18 @@ choosing images
 
 Examples
 
-Hey guys, it has been quite a long while since my last blog post (for almost a year, I guess). Today, I am going to tell you about something that I wish I had known before: nvidia-docker.
+Hey guys, it has been quite a long while since my last blog post (for almost a year, I guess). Today, I am going to tell you about something that I wish I had known before: NVIDIA Docker.
 
 ### What is Docker? And what is NVIDIA Docker?
-You can grab the idea behind Docker from Docker's page. 
-\quote Docker
+When you come across the term **Docker** somewhere, you may feel (just like I did) a little bit confused about what it is, and why we should consider using it.
+That's totally understandable if you are just machine learning enthusiasts like I was before, which we may need only a machine with Ubuntu or Mac once and do whatever we want.
+But if you are serious about getting a career in this field, working on some large scale projects with a team, it will be best if you know about Docker (or at least know how to use it!).
 
-The core of Docker: container. Can think of it as some kind of Virtual Machine (but it's not, I will tell the difference below).
+So, what is Docker? I'm not gonna rewrite any kind of long explanation since you can get it from Docker's page. In short, Docker is a software which help you create a "virtual" Linux/Windows environment called **container** from an Image, which you can then develop and running applications on it.
 
-*image of Docker container
-virtual
-not real
-not directly doing something with drivers
+"Hey, isn't it what VM (Virtual Machine) does?" - You may ask. Docker containers and VMs generally can do the same thing. For instance, you want to run Windows application on Ubuntu? Well, you can use Docker to create a Windows container, or VM can do the trick as well.
 
-docker and nvidia-docker definition
+![what_is_container](/images/projects/installing-nvidia-docker/what_is_docker.PNG)
 
 ### Installing NVIDIA docker
 So, let's get into the most important part: installing NVIDIA docker.
