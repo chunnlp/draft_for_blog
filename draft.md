@@ -43,23 +43,38 @@ But if you are serious about getting a career in this field, working on some lar
 
 So, what is Docker? I'm not gonna rewrite any kind of long explanation since you can get it from Docker's page. In short, Docker is a software which help you create a "virtual" Linux/Windows environment called **container** from an Image, which you can then develop and running applications on it.
 
-"Hey, isn't it what VM (Virtual Machine) does?" - You may ask. Docker containers and VMs generally can do the same thing. For instance, you want to run Windows application on Ubuntu? Well, you can use Docker to create a Windows container, or VM can do the trick as well.
-
 ![what_is_container](/images/projects/installing-nvidia-docker/what_is_docker.PNG)
 
+"Hey, isn't it what VM (Virtual Machine) does?" - You may ask. Docker containers and VMs generally can do the same thing. For instance, you want to run Windows application on Ubuntu? Well, you can use Docker to create a Windows container, and VM can do the trick as well.
+
+To answer to the question above, please take a look at the picture below which I took from Docker's page. They even show us the difference, don't they?
+
+![docker_vs_vm](/images/projects/installing-nvidia-docker/docker_vs_vm.PNG)
+
+What we can see from the picture is that, using VM requires creating a full copy of the OS for each application, whereas within Docker, many containers can share the same OS while running their own applications, which is the reason why:
+* Docker takes less hard disk space
+* Docker takes less RAM to operate
+* Docker containers can boot within seconds
+
+For a more detailed comparison, you can take a look at this thread on StackOverflow: [How is Docker different from VM?](https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-normal-virtual-machine)
+
+Last, but not least, what about NVIDIA Docker???
+
+Well, it's a pretty tedious task to get your graphic cards working on virtual machines, and the same thing happens when using Docker too. And then NVIDIA Docker, which is simply a plugin to Docker, came out and turn that task into just a piece of cake! And that's it, even the name explains itself, right?
+
 ### Installing NVIDIA docker
-So, let's get into the most important part: installing NVIDIA docker.
+So now you may got some idea about what Docker is, let's get into the most important part: installing NVIDIA Docker.
 As I said in the previous part, NVIDIA docker is just a plugin to docker, which makes GPU accessible from inside docker's containers. Therefore, installing NVIDIA docker consists of three steps like below:
 - Installing NVIDIA driver
 - Installing docker
 - Installing NVIDIA docker
 
-* Installing NVIDIA driver
+#### Installing NVIDIA driver
 NVIDIA driver is simply the necessary driver to use your GPU. You only need to install NVIDIA driver to your PC in order to use NVIDIA docker, which is a big advantage of docker.
 How to install NVIDIA driver depends on what Linux distribution you are using. And NVIDIA has a very detailed step-by-step instructions for all Linux distributions, so I think I should leave this part for you guys :) It's very easy, don't panic. My one piece of advice is: the newer the driver is, the better! The reason is that, newer version of CUDA toolkit may not work with old version of NVIDIA driver.
 Link: http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html
 
-* Installing docker
+#### Installing docker
 Next, we will install docker. Docker has two available editions: Community Edition (CE) and Enterprise Edition (EE). And just like NVIDIA driver, you need to know what Linux distribution you are using to choose the proper installation file.
 Below is the installing instructions for Docker Community Edition on Ubuntu (the OS I am using, of course).
 
@@ -126,7 +141,7 @@ Your screen should print out something like below:
 
 *image of docker hello world*
 
-* Installing NVIDIA docker
+#### Installing NVIDIA docker
 In the next step, we will finish our job by installing NVIDIA docker, which is just a plug in of Docker to help container use the GPUs of the host machine.
 
 First, you need to remove NVIDIA docker 1.0 (if installed):
