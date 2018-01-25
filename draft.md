@@ -1,38 +1,18 @@
 ---
-title: "Tensorflow Implementation Note: Installing Tensorflow and Keras on Windows"
+title: "Installing NVIDIA Docker"
 header:
-  teaser: projects/tensorflow-install/tensorflow_logo.png
+  teaser: projects/install-nvidia-docker/docker-logo.png
 categories:
   - Project
 tags:
   - machine-learning
   - deep-learning
-  - keras
-  - tensorflow
+  - docker
+  - nvidia
+  - nvidia-docker
   - gpu
-  - training
   - note
 ---
-
-disappeared for a while
-work for some big scale projects
-realize the importance of using docker
-
-So why docker?
-- The purpose of using docker
-- comparing docker with VMs
-quote:
-It’s important to distinguish containers and hypervisor-based virtual machines (VMs). VMs allow multiple copies of the operating system, or even multiple different operating systems, to share a machine. Each VM can host and run multiple applications. By comparison, a container is designed to virtualize a single application, and all containers deployed on a host share a single OS kernel, as Figure 2 shows. Typically, containers spin up faster, run the application with bare-metal performance, and are simpler to manage since there is no additional overhead to making an OS kernel call.
-
-- the weakness of docker when dealing with GPUs -> nvidia-docker
-
-Installation of docker
-nvidia-driver in host
-install docker
-install nvidia-docker
-choosing images
-
-Examples
 
 Hey guys, it has been quite a long while since my last blog post (for almost a year, I guess). Today, I am going to tell you about something that I wish I had known before: NVIDIA Docker.
 
@@ -41,7 +21,7 @@ When you come across the term **Docker** somewhere, you may feel (just like I di
 That's totally understandable if you are just machine learning enthusiasts like I was before, which you may not need to care about managing resources, setting up development/testing/production environment or something like that.
 But what if you are serious about getting a career in this field, working on some large scale projects with a team? It is likely that you and your guys will end up sharing one "bucky" supermachine (such as DGX-1), rather than using your own machine. Because of that, it will be best if you know about Docker or at least know how to use it!
 
-So, what is Docker? I'm not gonna rewrite any kind of long explanation since you can get it from Docker's page. In short, Docker is a software which help you create a virtual Linux/Windows environment called **container**, which you can then develop and run applications on.
+So, what is Docker? I'm not gonna rewrite any kind of long explanation since you can get it from Docker's page. In short (which is why it may not be absolutely precise), Docker is a software which help you create a virtual Linux/Windows environment called **container**, which you can then develop and run applications on.
 
 ![what_is_container](/images/projects/installing-nvidia-docker/what_is_docker.PNG)
 
@@ -177,4 +157,6 @@ docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 
 The command above should print out the information of your host machine's GPU(s) (as the nvidia-smi command usually does).
 
+### Summary
 
+Today I have introduced to you NVIDIA Docker, which I personally think that every deep learning developer should know about and get used to. And I hope you all successfully installed NVIDIA Docker. Some of you may not be convinced yet, which is why I am creating another post about some practical use cases as well as some tips on using Docker. So how do we utilize Docker to be more efficient at work? Wait for the next blog post! See you!
