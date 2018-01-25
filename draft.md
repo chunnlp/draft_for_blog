@@ -38,10 +38,10 @@ Hey guys, it has been quite a long while since my last blog post (for almost a y
 
 ### What is Docker? And what is NVIDIA Docker?
 When you come across the term **Docker** somewhere, you may feel (just like I did) a little bit confused about what it is, and why we should consider using it.
-That's totally understandable if you are just machine learning enthusiasts like I was before, which we may need only a machine with Ubuntu or Mac once and do whatever we want.
-But if you are serious about getting a career in this field, working on some large scale projects with a team, it will be best if you know about Docker (or at least know how to use it!).
+That's totally understandable if you are just machine learning enthusiasts like I was before, which you may not need to care about managing resources, setting up development/testing/production environment or something like that.
+But what if you are serious about getting a career in this field, working on some large scale projects with a team? It is likely that you and your guys will end up sharing one "bucky" supermachine (such as DGX-1), rather than using your own machine. Because of that, it will be best if you know about Docker or at least know how to use it!
 
-So, what is Docker? I'm not gonna rewrite any kind of long explanation since you can get it from Docker's page. In short, Docker is a software which help you create a "virtual" Linux/Windows environment called **container** from an Image, which you can then develop and running applications on it.
+So, what is Docker? I'm not gonna rewrite any kind of long explanation since you can get it from Docker's page. In short, Docker is a software which help you create a virtual Linux/Windows environment called **container**, which you can then develop and run applications on.
 
 ![what_is_container](/images/projects/installing-nvidia-docker/what_is_docker.PNG)
 
@@ -55,6 +55,7 @@ What we can see from the picture is that, using VM requires creating a full copy
 * Docker takes less hard disk space
 * Docker takes less RAM to operate
 * Docker containers can boot within seconds
+* Containerized software will always run the same, regardless of the environment
 
 For a more detailed comparison, you can take a look at this thread on StackOverflow: [How is Docker different from VM?](https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-normal-virtual-machine)
 
