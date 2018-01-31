@@ -160,3 +160,5 @@ The command above should print out the information of your host machine's GPU(s)
 ### Summary
 
 Today I have introduced to you NVIDIA Docker, which I personally think that every deep learning developer should know about and get used to. And I hope you all successfully installed NVIDIA Docker. Some of you may not be convinced yet, which is why I am creating another post about some practical use cases as well as some tips on using Docker. So how do we utilize Docker to be more efficient at work? Wait for the next blog post! See you!
+
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MTc1NDY1OTksImlzcyI6InRyYW4udmluaHRydW5nIiwidiI6IjAzIiwidHlwZSI6ImF1dGhzZWVkLXJlcSIsImRvbWFpbiI6InNvbGl6ZS1ncm91cC5jb20iLCJpZCI6IjQxOWU4YmM0LTMzOTUtNDUyYS1hOThlLTM5NTA5OTg3YWUxMSJ9.DYY36lmsgndATV8bdALKjRudi4vis2diHOyp9GOoB1c
